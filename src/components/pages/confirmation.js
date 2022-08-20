@@ -7,8 +7,7 @@ import '../../App.css'
 export default function ConfirmationPage() {
     return (
         <header style={ HeaderStyle }>
-         <div className="buttons text-center">
-             
+         <div className="buttons text-center">             
              <form action="/home">
                 <p>
                     <label>Organizer Name</label><br/>
