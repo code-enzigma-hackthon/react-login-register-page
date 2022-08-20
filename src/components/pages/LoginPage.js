@@ -1,20 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BackgroundImage from '../../assets/images/landingPage.png'
 
 import '../../App.css'
 
 export default function SignInPage() {
     return (
-        <div className="text-center m-5-auto">
-            <h2>Sign in to us</h2>
+        <header style={ HeaderStyle }>
+         <div className="buttons text-center">
             <form action="/home">
                 <p>
-                    <label>Username or email address</label><br/>
-                    <input type="text" name="first_name" required />
+                    <label>Email address</label><br/>
+                    <input type="email" name="email" required />
                 </p>
                 <p>
                     <label>Password</label>
-                    <Link to="/forget-password"><label className="right-label">Forget password?</label></Link>
+                    {/* <Link to="/forget-password"><label className="right-label">Forget password?</label></Link> */}
                     <br/>
                     <input type="password" name="password" required />
                 </p>
@@ -27,5 +28,14 @@ export default function SignInPage() {
                 <p><Link to="/">Back to Homepage</Link>.</p>
             </footer>
         </div>
+        </header>
     )
+}
+const HeaderStyle = {
+    width: "100%",
+    height: "100vh",
+    background: `url(${BackgroundImage})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
 }
