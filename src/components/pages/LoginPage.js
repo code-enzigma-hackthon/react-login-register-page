@@ -1,23 +1,38 @@
 import React from 'react'
+import axios from 'axios';
 import { Link } from 'react-router-dom'
 import BackgroundImage from '../../assets/images/landingPage.png'
-
+import {useState} from 'react';
+  
 import '../../App.css'
 
-export default function SignInPage() {
-    return (
+
+const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [post, setPost] = React.useState(null);
+    
+    const handleSubmit = event => {
+        event.preventDefault()    
+        console.log('form submitted ✅'+email);       
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+        .then(res => {
+          const persons = res.data;
+          console.log(persons);
+        })
+      };
+        return (
         <header style={ HeaderStyle }>
          <div className="buttons text-center">
-            <form action="/home">
+            <form onSubmit={handleSubmit}>
                 <p>
                     <label>Email address</label><br/>
-                    <input type="email" name="email" required />
+                    <input type="email" name="email" required  onChange={event => setEmail(event.target.value)}/>
                 </p>
                 <p>
                     <label>Password</label>
-                    {/* <Link to="/forget-password"><label className="right-label">Forget password?</label></Link> */}
                     <br/>
-                    <input type="password" name="password" required />
+                    <input type="password" name="password" required onChange={event => setPassword(event.target.value)}/>
                 </p>
                 <p>
                     <button id="sub_btn" type="submit">Login</button>
@@ -39,3 +54,4 @@ const HeaderStyle = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
 }
+export default LoginPage;

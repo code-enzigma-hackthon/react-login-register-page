@@ -6,6 +6,8 @@ import LoginPage from './components/pages/LoginPage'
 import RegisterPage from './components/pages/RegisterPage'
 import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
+import Confirmation from './components/pages/confirmation'
+import Booking from './components/pages/Booking'
 
 import './App.css'
 
@@ -19,6 +21,8 @@ export default function App() {
                     <Route path="/register" component={ RegisterPage } />
                     <Route path="/forget-password" component={ ForgetPasswordPage } />
                     <Route path="/home" component={ HomePage } />
+                    <Route path="/confirmation" component={ Confirmation } />
+                    <Route path="/booking" component={ Booking } />
                 </Switch>
                 <Footer />
             </div>
